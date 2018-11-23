@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <a mat-button class="nav-logo" href="#" routerLink="/">
+    <mat-icon class="sao-icon">people</mat-icon>
+    <span>САО</span>
+  </a>
+
+  <a mat-button *ngFor="let element of elements" [routerLink]="element.link">
+    {{element.name}}
+  </a>
+
+</mat-toolbar>
