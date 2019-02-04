@@ -14,6 +14,7 @@ import { AboutComponent } from './about/about.component';
 import { SquadsComponent } from './squads/squads.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { ReportsComponent } from './reports/reports.component';
+import { SquadIconComponent } from './squad-icon/squad-icon.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ReportsComponent } from './reports/reports.component';
     AboutComponent,
     SquadsComponent,
     GalleryComponent,
-    ReportsComponent
+    ReportsComponent,
+    SquadIconComponent
   ],
   imports: [
     BrowserModule,

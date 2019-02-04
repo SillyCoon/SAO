@@ -1,3 +1,4 @@
+import { SquadItem } from '../models/squad-item';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,6 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./squads.component.scss']
 })
 export class SquadsComponent implements OnInit {
+
+  squads: SquadItem[] = [
+    {
+      id: '1',
+      name: 'Алебастр',
+      icon: '#'
+    },
+    {
+      id: '2',
+      name: 'Ацтек',
+      icon: '#'
+    },
+    {
+      id: '3',
+      name: 'Арго',
+      icon: '#'
+    }
+  ];
 
   constructor() { }
 
