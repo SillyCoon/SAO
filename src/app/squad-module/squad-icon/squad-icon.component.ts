@@ -1,4 +1,4 @@
-import { SquadItem } from '../models/squad-item';
+import { SquadItem } from '../model/squad-item';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({

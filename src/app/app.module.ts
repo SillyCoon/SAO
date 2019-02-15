@@ -11,27 +11,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialAppModule } from './ngmaterial.module';
 import { AboutComponent } from './about/about.component';
-import { SquadsComponent } from './squads/squads.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { ReportsComponent } from './reports/reports.component';
-import { SquadIconComponent } from './squad-icon/squad-icon.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
     AboutComponent,
-    SquadsComponent,
     GalleryComponent,
     ReportsComponent,
-    SquadIconComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialAppModule,
     RouterModule,
-    AppRoutingModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

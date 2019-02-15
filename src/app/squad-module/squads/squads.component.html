@@ -1,0 +1,11 @@
+<div class='container'>
+  <h1>Наши отряды</h1>
+  <div class='squads-container'>
+    <ng-container *ngFor="let squad of squads">
+
+      <app-squad-icon [squad]='squad'></app-squad-icon>
+
+
+    </ng-container>
+  </div>
+</div>
