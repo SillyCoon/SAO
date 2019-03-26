@@ -10,23 +10,15 @@ import { AppRoutingModule } from './app-routing.module';
 // Material module
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialAppModule } from './ngmaterial.module';
-import { AboutComponent } from './about/about.component';
-import { SquadsComponent } from './squads/squads.component';
-import { GalleryComponent } from './gallery/gallery.component';
-import { ReportsComponent } from './reports/reports.component';
-import { SquadIconComponent } from './squad-icon/squad-icon.component';
+import { PrivateModule } from './private/private.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
-    AboutComponent,
-    SquadsComponent,
-    GalleryComponent,
-    ReportsComponent,
-    SquadIconComponent
   ],
   imports: [
+    PrivateModule,
     BrowserModule,
     BrowserAnimationsModule,
     MaterialAppModule,
