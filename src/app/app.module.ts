@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -14,7 +13,6 @@ import { MaterialAppModule } from './ngmaterial.module';
 @NgModule({
   declarations: [
     AppComponent,
-    ToolbarComponent,
   ],
   imports: [
     BrowserModule,
