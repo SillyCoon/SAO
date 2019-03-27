@@ -1,3 +1,68 @@
-<p>
-  registration works!
-</p>
+<div class='container'>
+  <mat-horizontal-stepper [linear]="false" #stepper>
+    <mat-step [stepControl]="mainFormGroup">
+      <form class='main-form' [formGroup]="mainFormGroup">
+        <ng-template matStepLabel>Основная информация</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Email" formControlName="email" required>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="password" formControlName="password" required>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="secondPassword" formControlName="password" required>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="name" formControlName="name" required>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="surname" formControlName="surname" required>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="patronymic" formControlName="email" required>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="phone" formControlName="phone" required>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="vk" formControlName="vk" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-checkbox class='is-budget'  formControlName="isBudget">Бюджет</mat-checkbox>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Иститут</mat-label>
+          <mat-select class='institute-selector' formControlName="institute" required>
+              <mat-option>--</mat-option>
+              <mat-option>--</mat-option>
+              <mat-option>--</mat-option>
+              <mat-option>--</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Документы</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Address" formControlName="secondCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Готово!</ng-template>
+      You are now done.
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>

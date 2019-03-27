@@ -1,3 +1,16 @@
-<p>
-  login works!
-</p>
+<div class='container'>
+  <h1 class='display-1'>Вход в личный кабинет</h1>
+  <p>В личном кабинете отображается информация о вашей донорской активности.</p>
+  <form class='login-form' [formGroup]='loginForm' (ngSubmit)="onSubmit()" >
+    <mat-form-field >
+      <input matInput formControlName='login' placeholder='Email'>
+    </mat-form-field>
+    <mat-form-field  placeholder='Пароль'>
+      <input matInput formControlName="password" placeholder='Пароль'>
+    </mat-form-field>
+    <div class='login-buttons'>
+        <button mat-button type='submit'>Вход</button>
+        <button mat-button [routerLink]="'../register'" type='button'>Регистрация</button>
+    </div>
+  </form>
+</div>

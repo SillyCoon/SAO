@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class UserToolbarComponent implements OnInit {
 
   elements = [
-    {'name': 'Личный кабинет', 'link': 'personal'},
+    {'name': 'Личный кабинет', 'link': 'personal/login'},
     {'name': 'О донорстве', 'link': 'about-donation'},
     {'name': 'Об акции', 'link': 'about-event'},
     {'name': 'Рекомендации', 'link': 'recommendations'},

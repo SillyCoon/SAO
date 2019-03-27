@@ -4,13 +4,18 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { MaterialAppModule } from 'src/app/ngmaterial.module';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { CabinetComponent } from './cabinet/cabinet.component';
+import { PersonalComponent } from './personal.component';
 
 @NgModule({
-  declarations: [LoginComponent, RegistrationComponent],
+  declarations: [LoginComponent, RegistrationComponent, CabinetComponent, PersonalComponent],
   imports: [
     CommonModule,
     PersonalRoutingModule,
-    MaterialAppModule
+    MaterialAppModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class PersonalModule { }
