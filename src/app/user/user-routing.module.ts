@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: '', component: UserComponent, children: [
       { path: 'welcome', component: WelcomeComponent },
-      //{ path: 'personal', loadChildren: './personal/personal.module#PersonalModule' },
+      { path: 'personal', loadChildren: './personal/personal.module#PersonalModule' },
       { path: 'about-donation', component: DonationComponent },
       { path: 'about-event', component: EventComponent },
       { path: 'recommendations', component: RecommendationsComponent },
