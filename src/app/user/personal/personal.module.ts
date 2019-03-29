@@ -7,9 +7,18 @@ import { MaterialAppModule } from 'src/app/ngmaterial.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CabinetComponent } from './cabinet/cabinet.component';
 import { PersonalComponent } from './personal.component';
+import { BasicInfoFormComponent } from './forms/basic-info-form/basic-info-form.component';
+import { UnivercityFormComponent } from './forms/university-form/university-form.component';
 
 @NgModule({
-  declarations: [LoginComponent, RegistrationComponent, CabinetComponent, PersonalComponent],
+  declarations: [
+    LoginComponent,
+    RegistrationComponent,
+    CabinetComponent,
+    PersonalComponent,
+    BasicInfoFormComponent,
+    UnivercityFormComponent
+  ],
   imports: [
     CommonModule,
     PersonalRoutingModule,
