@@ -13,7 +13,9 @@ export class UnivercityFormComponent implements OnInit {
   @Output() formReady: EventEmitter<FormGroup> = new EventEmitter();
   universityFormGroup: FormGroup;
 
-  institutes = [{ id: 'one', name: 'ИКНТ' }, { id: 'one', name: 'ИКНТ' }, { id: 'one', name: 'ИКНТ' }];
+  institutes = [{ id: 'one', name: 'ИКНТ' }, { id: 'two', name: 'ИФНИТ' }, { id: 'three', name: 'ИПММ' }];
+  studyForms = [{ id: 1, text: 'Бюджетная'}, {id: 2, text: 'Контрактная'}];
+
 
   filteredInstitutes: Observable<any[]>;
 
@@ -35,6 +37,7 @@ export class UnivercityFormComponent implements OnInit {
     );
   }
 
+  // Institutes autocomplete filtration
   private _filter(value: string): any[] {
     const filterValue = value.toLowerCase();
 

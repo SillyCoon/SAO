@@ -1,20 +1,26 @@
 <form class='main-form' [formGroup]="universityFormGroup" class='main-form'>
   <mat-form-field>
-    <input matInput placeholder="Группа" formControlName="studyGroup" required>
+    <mat-label>Номер группы: </mat-label>
+    <input matInput placeholder="43506/3" formControlName="studyGroup" required>
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="Зачетная книжка" formControlName="recordBook" required>
+    <mat-label>Зачетная книжка: </mat-label>
+    <input matInput maxlength="8" type='number' placeholder="12345678" formControlName="recordBook" required>
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="Институт" formControlName="institute" aria-label='Text' [matAutocomplete]='institute' required>
+    <input type='text' matInput placeholder="Институт" formControlName="institute" aria-label='Text'
+      [matAutocomplete]='institute' required>
     <mat-autocomplete #institute="matAutocomplete">
-      <mat-option *ngFor="let institute of institutes | async" [value]="institute.id">
+      <mat-option *ngFor="let institute of filteredInstitutes | async" [value]="institute.name">
         {{ institute.name }}
       </mat-option>
     </mat-autocomplete>
-
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="Форма обучения" formControlName="studyForm" required>
+    <mat-select matInput placeholder="Форма обучения" formControlName="studyForm" required>
+      <mat-option *ngFor='let form of studyForms' [value]='form.id'>
+        {{ form.text }}
+      </mat-option>
+    </mat-select>
   </mat-form-field>
 </form>

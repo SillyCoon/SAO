@@ -1,0 +1,33 @@
+<form [formGroup]="documentsFormGroup" class='documents-form'>
+  <mat-form-field>
+    <mat-label>Серия: </mat-label>
+    <input matInput type='number' placeholder="passSeries" formControlName="passSeries" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Номер: </mat-label>
+    <input matInput placeholder="passNumber" formControlName="passNumber" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Место выдачи" formControlName="issuePlace" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput #issueDate type='date' placeholder="Дата выдачи" formControlName="issueDate" required>
+    <mat-datepicker-toggle matSuffix [for]="issueDate"></mat-datepicker-toggle>
+    <mat-datepicker #issueDate></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="registrationAdress" formControlName="registrationAdress" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type='number' placeholder="birthplace" formControlName="SNILS" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type='number' placeholder="birthplace" formControlName="INN" required>
+  </mat-form-field>
+</form>

@@ -3,10 +3,10 @@
     <input matInput placeholder="Email" formControlName="email" required>
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="Пароль" formControlName="password" required>
+    <input matInput type='password' placeholder="Пароль" formControlName="password" required>
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="Повторите пароль" formControlName="password" required>
+    <input matInput type='password' placeholder="Повторите пароль" formControlName="password" required>
   </mat-form-field>
   <mat-form-field>
     <input matInput placeholder="Имя" formControlName="name" required>
@@ -19,7 +19,7 @@
   </mat-form-field>
   <mat-form-field>
     <span matPrefix>+7 &nbsp;</span>
-    <input matInput #phone maxlength="10" placeholder="Телефон" formControlName="phone" required>
+    <input matInput type='tel' #phone maxlength="10" placeholder="Телефон" formControlName="phone" required>
     <mat-hint align="end">{{ phone.value.length }} / 10</mat-hint>
   </mat-form-field>
   <mat-form-field>
