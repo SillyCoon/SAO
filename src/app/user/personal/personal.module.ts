@@ -10,6 +10,7 @@ import { PersonalComponent } from './personal.component';
 import { BasicInfoFormComponent } from './forms/basic-info-form/basic-info-form.component';
 import { UnivercityFormComponent } from './forms/university-form/university-form.component';
 import { DocumentsFormComponent } from './forms/documents-form/documents-form.component';
+import { DonorFormComponent } from './forms/donor-form/donor-form.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DocumentsFormComponent } from './forms/documents-form/documents-form.co
     PersonalComponent,
     BasicInfoFormComponent,
     UnivercityFormComponent,
-    DocumentsFormComponent
+    DocumentsFormComponent,
+    DonorFormComponent
   ],
   imports: [
     CommonModule,

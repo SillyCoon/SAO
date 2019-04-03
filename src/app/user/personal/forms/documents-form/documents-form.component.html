@@ -1,12 +1,12 @@
 <form [formGroup]="documentsFormGroup" class='documents-form'>
   <mat-form-field>
     <mat-label>Серия: </mat-label>
-    <input matInput type='number' placeholder="passSeries" formControlName="passSeries" required>
+    <input matInput maxLength=4 placeholder="XXXX" formControlName="passSeries" required>
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Номер: </mat-label>
-    <input matInput placeholder="passNumber" formControlName="passNumber" required>
+    <input matInput maxLength=6 placeholder="XXXXXX" formControlName="passNumber" required>
   </mat-form-field>
 
   <mat-form-field>
@@ -14,20 +14,25 @@
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput #issueDate type='date' placeholder="Дата выдачи" formControlName="issueDate" required>
+    <input matInput [matDatepicker]='issueDate' placeholder="Дата выдачи" formControlName="issueDate" required>
     <mat-datepicker-toggle matSuffix [for]="issueDate"></mat-datepicker-toggle>
-    <mat-datepicker #issueDate></mat-datepicker>
+    <mat-datepicker startView="multi-year" #issueDate></mat-datepicker>
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="registrationAdress" formControlName="registrationAdress" required>
+    <textarea matInput placeholder="Адрес регистрации по паспорту" formControlName="registrationAdress"
+      required></textarea>
+  </mat-form-field>
+
+
+  <mat-form-field>
+      <mat-label>ИНН: </mat-label>
+    <input matInput type='text' placeholder="1234567890" maxlength=10 placeholder="ИНН" formControlName="INN" required>
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput type='number' placeholder="birthplace" formControlName="SNILS" required>
+    <mat-label>СНИЛС: </mat-label>
+    <input matInput type='text' placeholder="123-456-789-01" formControlName="SNILS" required>
   </mat-form-field>
 
-  <mat-form-field>
-    <input matInput type='number' placeholder="birthplace" formControlName="INN" required>
-  </mat-form-field>
 </form>

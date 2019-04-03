@@ -14,23 +14,23 @@ export class UnivercityFormComponent implements OnInit {
   universityFormGroup: FormGroup;
 
   institutes = [{ id: 'one', name: 'ИКНТ' }, { id: 'two', name: 'ИФНИТ' }, { id: 'three', name: 'ИПММ' }];
-  studyForms = [{ id: 1, text: 'Бюджетная'}, {id: 2, text: 'Контрактная'}];
-
+  studyForms = [{ id: 1, text: 'Бюджетная' }, { id: 2, text: 'Контрактная' }];
 
   filteredInstitutes: Observable<any[]>;
 
   constructor(private _formBuilder: FormBuilder) {
+  }
 
+  ngOnInit() {
     this.universityFormGroup = this._formBuilder.group({
       studyGroup: ['', Validators.required],
       recordBook: [''],
       institute: [''],
       studyForm: [''],
     });
-  }
 
-  ngOnInit() {
     this.formReady.emit(this.universityFormGroup);
+
     this.filteredInstitutes = this.universityFormGroup.get('institute').valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value))

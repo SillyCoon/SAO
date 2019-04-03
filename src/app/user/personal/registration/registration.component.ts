@@ -20,6 +20,8 @@ export class RegistrationComponent implements OnInit {
   }
 
   formInitializer(name: string, form: FormGroup) {
+    console.log(form);
     this.userInfoForm.setControl(name, form);
+    console.log(this.userInfoForm);
   }
 }

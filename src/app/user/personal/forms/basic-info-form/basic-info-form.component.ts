@@ -13,6 +13,9 @@ export class BasicInfoFormComponent implements OnInit {
 
   constructor(private _formBuilder: FormBuilder) {
 
+  }
+
+  ngOnInit() {
     this.mainFormGroup = this._formBuilder.group({
       email: ['', Validators.email],
       password: ['', Validators.minLength(8)],
@@ -23,12 +26,8 @@ export class BasicInfoFormComponent implements OnInit {
       phone: ['', [Validators.maxLength(10), Validators.pattern(/\d{10}/)]],
       vk: ['']
     });
-  }
 
-  ngOnInit() {
     this.formReady.emit(this.mainFormGroup);
   }
-
-
 
 }

@@ -1,18 +1,24 @@
 <div class='container'>
+  <h2>Здесь Вы можете зарегистрироваться, чтобы получить доступ к личному кабинету и сдать кровь</h2>
   <mat-horizontal-stepper [linear]="false" #stepper>
     <mat-step [stepControl]="userInfoForm">
+      <h2>Базовая информация для возможности сдать кровь</h2>
       <ng-template matStepLabel>Основная информация</ng-template>
-      <user-basic-info-form (formReady)='formInitializer("basicInfo, $event")'></user-basic-info-form>
+      <h3>Основная информация: </h3>
+      <user-basic-info-form (formReady)='formInitializer("basicInfo", $event)'></user-basic-info-form>
+      <h3>Донорская информация: </h3>
+      <user-donor-form (formReady)='formInitializer("donor", $event)'></user-donor-form>
       <div>
         <button mat-button matStepperNext>Next</button>
       </div>
     </mat-step>
     <mat-step [stepControl]="universityInfoForm">
-      <ng-template matStepLabel>Документы</ng-template>
+      <ng-template matStepLabel>Дополнительная информация</ng-template>
+      <h2>Необходима для получения матпомощи</h2>
       <h3>Университет: </h3>
-      <user-university-form></user-university-form>
+      <user-university-form (formReady)='formInitializer("university", $event)'></user-university-form>
       <h3>Документы: </h3>
-      <user-documents-form></user-documents-form>
+      <user-documents-form (formReady)='formInitializer("documents", $event)'></user-documents-form>
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
@@ -20,10 +26,10 @@
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>Готово!</ng-template>
-      You are now done.
+      Подтвердите введенную информацию
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-button matStepperPrevious>Назад</button>
+        <button mat-button (click)="stepper.reset()">Подтвердить</button>
       </div>
     </mat-step>
   </mat-horizontal-stepper>
