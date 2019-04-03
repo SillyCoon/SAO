@@ -9,7 +9,10 @@
     </mat-step>
     <mat-step [stepControl]="universityInfoForm">
       <ng-template matStepLabel>Документы</ng-template>
+      <h3>Университет: </h3>
       <user-university-form></user-university-form>
+      <h3>Документы: </h3>
+      <user-documents-form></user-documents-form>
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>

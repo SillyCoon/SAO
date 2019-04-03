@@ -2,7 +2,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-documents-form',
+  selector: 'user-documents-form',
   templateUrl: './documents-form.component.html',
   styleUrls: ['./documents-form.component.scss']
 })
