@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserToolbarComponent implements OnInit {
 
+  isAuthorized: false;
+
   elements = [
     {'name': 'Личный кабинет', 'link': 'personal/login'},
     {'name': 'О донорстве', 'link': 'about-donation'},

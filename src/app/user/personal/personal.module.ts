@@ -11,6 +11,7 @@ import { BasicInfoFormComponent } from './forms/basic-info-form/basic-info-form.
 import { UnivercityFormComponent } from './forms/university-form/university-form.component';
 import { DocumentsFormComponent } from './forms/documents-form/documents-form.component';
 import { DonorFormComponent } from './forms/donor-form/donor-form.component';
+import { YesNoDialog } from './yes-no-dialog/yes-no-dialog.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { DonorFormComponent } from './forms/donor-form/donor-form.component';
     BasicInfoFormComponent,
     UnivercityFormComponent,
     DocumentsFormComponent,
-    DonorFormComponent
+    DonorFormComponent,
+    YesNoDialog
   ],
   imports: [
     CommonModule,
@@ -29,6 +31,9 @@ import { DonorFormComponent } from './forms/donor-form/donor-form.component';
     MaterialAppModule,
     ReactiveFormsModule,
     FormsModule
+  ],
+  entryComponents: [
+    YesNoDialog
   ]
 })
 export class PersonalModule { }

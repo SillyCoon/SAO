@@ -9,7 +9,8 @@
     <a mat-button *ngFor="let element of elements" [routerLink]="element.link">
       {{element.name}}
     </a>
-
   </div>
-
+  <div class='login-buttons ml-auto p-2'>
+    <button mat-button [routerLink]="'personal/login'">{{ isAuthorized ? "Личный кабинет" : "Вход/Регистрация"}}</button>
+  </div>
 </mat-toolbar>
