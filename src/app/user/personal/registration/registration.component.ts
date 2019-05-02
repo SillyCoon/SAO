@@ -40,7 +40,6 @@ export class RegistrationComponent implements OnInit {
       } as YesNoDialogData
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
       this.isBudget = result;
     });
   }
