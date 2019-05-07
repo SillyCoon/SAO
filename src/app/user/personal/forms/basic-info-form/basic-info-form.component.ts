@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { PasswordEqualityValidator } from 'src/app/shared/confirm-equal-validator.directive';
 
 @Component({
   selector: 'user-basic-info-form',
@@ -18,10 +19,14 @@ export class BasicInfoFormComponent implements OnInit {
   ngOnInit() {
     this.mainFormGroup = this._formBuilder.group({
       email: ['', Validators.email],
-      password: ['', Validators.minLength(8)],
-      secondPassword: ['', Validators.minLength(8)],
-      name: ['', Validators.pattern(/[а-яА-я]/)],
-      surname: ['', Validators.pattern(/[а-яА-я]/)],
+      passwordFormGroup: this._formBuilder.group({
+        password: ['', Validators.minLength(8)],
+        secondPassword: ['', Validators.minLength(8)],
+      }, {
+          validator: PasswordEqualityValidator
+        }),
+      firstName: ['', Validators.pattern(/[а-яА-я]/)],
+      lastName: ['', Validators.pattern(/[а-яА-я]/)],
       patronymic: ['', Validators.pattern(/[а-яА-я]/)],
       phone: ['', [Validators.maxLength(10), Validators.pattern(/\d{10}/)]],
       vk: ['']

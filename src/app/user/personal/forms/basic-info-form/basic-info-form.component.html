@@ -2,17 +2,19 @@
   <mat-form-field>
     <input matInput placeholder="Email" formControlName="email" required>
   </mat-form-field>
+  <div formGroupName='passwordFormGroup'>
+    <mat-form-field>
+      <input matInput type='password' placeholder="Пароль" formControlName="password" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type='password' placeholder="Повторите пароль" formControlName="secondPassword" required>
+    </mat-form-field>
+  </div>
   <mat-form-field>
-    <input matInput type='password' placeholder="Пароль" formControlName="password" required>
+    <input matInput placeholder="Имя" formControlName="firstName" required>
   </mat-form-field>
   <mat-form-field>
-    <input matInput type='password' placeholder="Повторите пароль" formControlName="password" required>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Имя" formControlName="name" required>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Фамилия" formControlName="surname" required>
+    <input matInput placeholder="Фамилия" formControlName="lastName" required>
   </mat-form-field>
   <mat-form-field>
     <input matInput placeholder="Отчество" formControlName="patronymic" required>
