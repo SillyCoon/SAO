@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 // Material module
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialAppModule } from './ngmaterial.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { MaterialAppModule } from './ngmaterial.module';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MaterialAppModule,
     RouterModule,

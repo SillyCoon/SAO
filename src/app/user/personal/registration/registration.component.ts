@@ -1,6 +1,7 @@
+import { DonorInfo } from './../models/donor-info';
 import { RegistrationService } from './registration.service';
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { Component, OnInit, AfterViewChecked } from '@angular/core';
+import { FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { YesNoDialog } from '../yes-no-dialog/yes-no-dialog.component';
 import { YesNoDialogData } from '../yes-no-dialog/dialog-data';
@@ -15,6 +16,7 @@ export class RegistrationComponent implements OnInit {
   userInfoForm: FormGroup;
   universityInfoForm: FormGroup;
   isBudget = true;
+  isLoaded = false;
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -26,8 +28,8 @@ export class RegistrationComponent implements OnInit {
       mock: null
     });
 
-    // TODO: Ошибка, лучше от нее потом избавиться
-    this.openEducationFormDialog();
+    // Костыль для диалогового окна
+    Promise.resolve().then(() => { this.openEducationFormDialog(); });
   }
 
   // Проверяем, какой формы обучения студент. Если контрактной, то часть полей он не заполняет
@@ -42,6 +44,7 @@ export class RegistrationComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       this.isBudget = result;
+      this.isLoaded = true;
     });
   }
 
@@ -51,7 +54,21 @@ export class RegistrationComponent implements OnInit {
   }
 
   register() {
-    console.log(this.userInfoForm.value);
-    // this.registrationService.sendRegistrationData()
+    const userBasicInfoForm: AbstractControl = this.userInfoForm.get('basicInfo');
+    const donorBasicInfoForm: AbstractControl = this.userInfoForm.get('donor');
+
+    if (userBasicInfoForm.valid && donorBasicInfoForm.valid) {
+      const donorBasicInfo = donorBasicInfoForm.value;
+      const userBasicInfo = userBasicInfoForm.value;
+      const password = donorBasicInfo.passwordFormGroup.password;
+
+      const donorInfo: DonorInfo = { ...donorBasicInfo, ...userBasicInfo.value, password: password };
+
+      this.registrationService.sendRegistrationData(donorInfo).subscribe();
+
+    } else {
+      this.userInfoForm.markAsDirty();
+    }
+
   }
 }

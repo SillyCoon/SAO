@@ -32,6 +32,8 @@ import { YesNoDialog } from './yes-no-dialog/yes-no-dialog.component';
     ReactiveFormsModule,
     FormsModule
   ],
+  providers: [
+  ],
   entryComponents: [
     YesNoDialog
   ]
