@@ -1,7 +1,7 @@
 <form [formGroup]="donorFormGroup" class='donor-form'>
   <mat-form-field>
     <mat-select matInput placeholder="Вес" formControlName="weight" required>
-      <mat-option *ngFor='let weight of weights' [value]='weight.id'>
+      <mat-option *ngFor='let weight of weights | async' [value]='weight.id'>
         {{ weight.text }}
       </mat-option>
     </mat-select>
@@ -9,7 +9,7 @@
 
   <mat-form-field>
     <mat-select matInput placeholder="Гражданство" formControlName="citizenship" required>
-      <mat-option *ngFor='let citizenship of citizenships' [value]='citizenship.id'>
+      <mat-option *ngFor='let citizenship of citizenships | async' [value]='citizenship.id'>
         {{ citizenship.text }}
       </mat-option>
     </mat-select>

@@ -17,20 +17,22 @@ export class BasicInfoFormComponent implements OnInit {
 
   }
 
+  // TODO: Отображение лейблов у вк и телефона смещено вправо
+
   ngOnInit() {
     this.mainFormGroup = this._formBuilder.group({
-      email: ['', Validators.email],
+      email: ['ahtunget@gmail.com', Validators.email],
       passwordFormGroup: this._formBuilder.group({
-        password: ['', Validators.minLength(8)],
-        secondPassword: [''],
+        password: ['12345678', Validators.minLength(8)],
+        secondPassword: ['12345678'],
       }, {
           validator: this.passwordEqualityValidator
         }),
-      firstName: ['', Validators.pattern(/[а-яА-я]/)],
-      lastName: ['', Validators.pattern(/[а-яА-я]/)],
-      patronymic: ['', Validators.pattern(/[а-яА-я]/)],
-      phone: ['', [Validators.maxLength(10), Validators.pattern(/\d{10}/)]],
-      vk: ['']
+      firstName: ['Алексей', Validators.pattern(/[а-яА-я]/)],
+      lastName: ['Иванов', Validators.pattern(/[а-яА-я]/)],
+      patronymic: ['Анатольевич', Validators.pattern(/[а-яА-я]/)],
+      phone: ['9062683961', [Validators.maxLength(10), Validators.pattern(/\d{10}/)]],
+      vk: ['brother_of_cola'] // TODO: валидатор для VK
     });
 
     this.formReady.emit(this.mainFormGroup);

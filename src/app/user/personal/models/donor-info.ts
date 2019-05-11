@@ -7,6 +7,6 @@ export class DonorInfo {
   password: string;
   phone: string;
   vk: string;
-  weigth: boolean;
-  citizenship: boolean;
+  weightId: number;
+  citizenshipId: number;
 }

@@ -1,5 +1,8 @@
+import { DropdownElement } from './../../models/dropdown-element';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { Observable } from 'rxjs/internal/Observable';
+import { DonorFormService } from './donor-form.service';
 
 @Component({
   selector: 'user-donor-form',
@@ -8,20 +11,13 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class DonorFormComponent implements OnInit {
 
-  @Output() formReady: EventEmitter<FormGroup> = new EventEmitter();
   donorFormGroup: FormGroup;
+  weights: Observable<DropdownElement[]>;
+  citizenships: Observable<DropdownElement[]>;
 
-  weights = [
-    { id: 1, text: 'Больше 58 килограмм' },
-    { id: 2, text: 'От 50 до 58 кг' }
-  ];
+  @Output() formReady: EventEmitter<FormGroup> = new EventEmitter();
 
-  citizenships = [
-    { id: 1, text: 'Российское' },
-    { id: 2, text: 'Другой страны' }
-  ];
-
-  constructor(private _formBuilder: FormBuilder) {
+  constructor(private _formBuilder: FormBuilder, private donorFormService: DonorFormService) {
 
   }
 
@@ -30,7 +26,15 @@ export class DonorFormComponent implements OnInit {
       weight: [''],
       citizenship: ['']
     });
-
+    this.subscribeInfo();
     this.formReady.emit(this.donorFormGroup);
+  }
+
+  /**
+   * Получаем Observables на гражданство и вес, потом через | asynс данные
+   */
+  subscribeInfo() {
+    this.citizenships = this.donorFormService.getCitizenships();
+    this.weights = this.donorFormService.getWeights();
   }
 }
