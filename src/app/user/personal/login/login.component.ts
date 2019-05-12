@@ -1,5 +1,6 @@
+import { AuthenticationService } from './../services/authentication.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,20 +11,28 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   loginForm = new FormGroup({
-    login: new FormControl(''),
-    password: new FormControl('')
+    login: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required)
   });
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private authService: AuthenticationService) {
 
-  }
-
-  onSubmit() {
-    console.log('submit');
-    this.router.navigateByUrl('/user/personal/cabinet');
   }
 
   ngOnInit() {
   }
+
+  onSubmit() {
+    // console.log('submit');
+    const val = this.loginForm.value;
+    if (val.login && val.password) {
+      this.authService.login(val.login, val.password).subscribe(() => {
+        console.log('User is loggen in');
+        this.router.navigateByUrl('/user/personal/cabinet');
+      });
+    }
+  }
+
+
 
 }

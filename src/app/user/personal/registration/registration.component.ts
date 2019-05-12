@@ -54,21 +54,21 @@ export class RegistrationComponent implements OnInit {
   }
 
   register() {
-    const personBasicInfoForm: AbstractControl = this.userInfoForm.get('basicInfo');
+    const userBasicInfoForm: AbstractControl = this.userInfoForm.get('basicInfo');
     const donorBasicInfoForm: AbstractControl = this.userInfoForm.get('donor');
 
-    if (personBasicInfoForm.valid && donorBasicInfoForm.valid) {
+    if (userBasicInfoForm.valid && donorBasicInfoForm.valid) {
 
       const donorBasicInfo = donorBasicInfoForm.value;
-      const personBasicInfo = personBasicInfoForm.value;
+      const userBasicInfo = userBasicInfoForm.value;
       // Так как FormGroup включает пароль и подтверждение, надо взять только сам пароль
-      const password = personBasicInfo.passwordFormGroup.password;
-      delete personBasicInfo.passwordFormGroup;
+      const password = userBasicInfo.passwordFormGroup.password;
+      delete userBasicInfo.passwordFormGroup;
 
       const donorInfo: DonorInfo = {
         weightId: donorBasicInfo.weight,
         citizenshipId: donorBasicInfo.citizenship,
-        ...personBasicInfo,
+        ...userBasicInfo,
         password: password
       };
       console.log(donorInfo);

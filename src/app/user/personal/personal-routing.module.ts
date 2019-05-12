@@ -4,12 +4,13 @@ import { RegistrationComponent } from './registration/registration.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PersonalComponent } from './personal.component';
+import { AccessGuard } from './access.guard';
 
 
 const routes: Routes = [
   {
     path: '', component: PersonalComponent, children: [
-      { path: 'cabinet', component: CabinetComponent },
+      { path: 'cabinet', component: CabinetComponent, canActivate: [AccessGuard] },
       { path: 'register', component: RegistrationComponent },
       { path: 'login', component: LoginComponent }
       // { path: 'about-donation', component: DonationComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
+  providers: [AccessGuard]
 })
 
 export class PersonalRoutingModule {

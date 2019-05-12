@@ -10,6 +10,8 @@ import { EventComponent } from './event/event.component';
 import { RecommendationsComponent } from './recommendations/recommendations.component';
 import { ContraindsComponent } from './contrainds/contrainds.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './personal/authentication.interceptor';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,15 @@ import { AboutUsComponent } from './about-us/about-us.component';
   imports: [
     CommonModule,
     UserRoutingModule,
-    MaterialAppModule
+    MaterialAppModule,
+
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ]
 })
 export class UserModule { }

@@ -1,3 +1,5 @@
+import { AuthInterceptor } from './authentication.interceptor';
+import { AuthenticationService } from './services/authentication.service';
 import { PersonalRoutingModule } from './personal-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -12,6 +14,7 @@ import { UnivercityFormComponent } from './forms/university-form/university-form
 import { DocumentsFormComponent } from './forms/documents-form/documents-form.component';
 import { DonorFormComponent } from './forms/donor-form/donor-form.component';
 import { YesNoDialog } from './yes-no-dialog/yes-no-dialog.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,12 @@ import { YesNoDialog } from './yes-no-dialog/yes-no-dialog.component';
     FormsModule
   ],
   providers: [
+    AuthenticationService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
   entryComponents: [
     YesNoDialog
