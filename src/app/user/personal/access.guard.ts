@@ -10,11 +10,11 @@ export class AccessGuard implements CanActivate {
 
   canActivate(): Observable<boolean> | boolean {
 
-    if (this.authService.isLoggetOut()) {
-      this.router.navigate(['login']);
-      return false;
-    } else {
+    // if (this.authService.isLoggetOut()) {
+    //   this.router.navigate(['login']);
+    //   return false;
+    // } else {
       return true;
-    }
+    // }
   }
 }
