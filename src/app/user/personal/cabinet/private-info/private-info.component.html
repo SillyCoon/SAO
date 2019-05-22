@@ -1,0 +1,57 @@
+<mat-card class='main-info-content mt-4'>
+  <mat-card-header>
+    <mat-card-title>Личные данные</mat-card-title>
+    <mat-card-subtitle>Здесь Вы можете посмотреть и изменить свои личные данные</mat-card-subtitle>
+  </mat-card-header>
+
+  <div class='personal-info-container'>
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Базовая информация
+          </mat-panel-title>
+          <mat-panel-description>
+            Прямо как при регистрации
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <user-basic-info-form (formReady)='formInitializer("basicInfo", $event)'></user-basic-info-form>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Донорская информация
+          </mat-panel-title>
+          <mat-panel-description>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <user-donor-form (formReady)='formInitializer("donor", $event)'></user-donor-form>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Университет
+          </mat-panel-title>
+          <mat-panel-description>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <user-university-form (formReady)='formInitializer("university", $event)'></user-university-form>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Документы
+          </mat-panel-title>
+          <mat-panel-description>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <user-documents-form (formReady)='formInitializer("documents", $event)'></user-documents-form>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <button mat-button (click)="onSubmit()">Подтвердить изменения</button>
+  </div>
+
+</mat-card>

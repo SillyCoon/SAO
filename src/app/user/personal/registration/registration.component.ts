@@ -14,7 +14,7 @@ import { YesNoDialogData } from '../yes-no-dialog/dialog-data';
 export class RegistrationComponent implements OnInit {
 
   userInfoForm: FormGroup;
-  universityInfoForm: FormGroup;
+  // universityInfoForm: FormGroup;
   isBudget = true;
   isLoaded = false;
 

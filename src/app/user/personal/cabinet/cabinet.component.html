@@ -1,41 +1,32 @@
-<div class='container'>
-  <h1>Личный кабинет</h1>
+<mat-sidenav-container class='personal-cabinet'>
+  <mat-sidenav mode='side' opened class='personal-cabinet-menu'>
+    <h3>Личный кабинет</h3>
 
-  <div class='row'>
-    <div class='col-md-12'>
+    <mat-nav-list>
+      <mat-list-item *ngFor="let link of navLinks">
+        <a matLine [routerLink]="link.path" routerLinkActive #rla="routerLinkActive">
+          {{link.name}}
+        </a>
+      </mat-list-item>
+    </mat-nav-list>
+
+  </mat-sidenav>
+  <mat-sidenav-content class='personal-cabinet-content'>
+    <div class='container personal-cabinet-container'>
       <div class='row'>
-        <h3>Время сдачи</h3>
+        <div class='col-md-12'>
+          <router-outlet></router-outlet>
+        </div>
+
       </div>
 
-      <div class='row'>
-        <p>Вы не записаны :( выберите из доступных на данный момент</p>
-      </div>
+      <!-- <nav mat-tab-nav-bar mat-align-tabs="center">
+        <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.path" routerLinkActive #rla="routerLinkActive"
+          [active]="rla.isActive">
+          {{link.name}}
+        </a>
+      </nav> -->
+
     </div>
-  </div>
-
-  <div class='row'>
-    <div class='col-md-12'>
-      <div class='row'>
-        <h3>Ваши достижения</h3>
-      </div>
-      <div class='row'>
-        <p></p>
-      </div>
-    </div>
-
-
-  </div>
-  <div class='row'>
-    <div class='col-md-12'>
-      <div class='row'>
-        <h3>Личные данные </h3>
-      </div>
-      <div class='row'>
-        <p></p>
-      </div>
-    </div>
-
-
-  </div>
-
-</div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

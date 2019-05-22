@@ -15,6 +15,10 @@ import { DocumentsFormComponent } from './forms/documents-form/documents-form.co
 import { DonorFormComponent } from './forms/donor-form/donor-form.component';
 import { YesNoDialog } from './yes-no-dialog/yes-no-dialog.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RecordingComponent } from './cabinet/recording/recording.component';
+import { DonationsHistoryComponent } from './cabinet/history/donations-history.component';
+import { PrivateInfoComponent } from './cabinet/private-info/private-info.component';
+import { CabinetInfoComponent } from './cabinet/cabinet-info/cabinet-info.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,12 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     UnivercityFormComponent,
     DocumentsFormComponent,
     DonorFormComponent,
-    YesNoDialog
+    YesNoDialog,
+    RecordingComponent,
+    DonationsHistoryComponent,
+    RecordingComponent,
+    PrivateInfoComponent,
+    CabinetInfoComponent
   ],
   imports: [
     CommonModule,

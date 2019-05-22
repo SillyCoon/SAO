@@ -1,0 +1,19 @@
+.personal-cabinet {
+  position: absolute;
+  top: 64px; //
+  bottom: 100px; // footer
+  left: 0;
+  right: 0;
+}
+.personal-cabinet-menu{
+  background: #e9e9e9;
+  width: 15%;
+}
+
+.personal-cabinet-content {
+  background: white;
+}
+
+.personal-cabinet-container{
+  min-height: 100%;
+}

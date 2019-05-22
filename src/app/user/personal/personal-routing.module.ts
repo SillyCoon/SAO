@@ -1,3 +1,4 @@
+import { PrivateInfoComponent } from './cabinet/private-info/private-info.component';
 import { LoginComponent } from './login/login.component';
 import { CabinetComponent } from './cabinet/cabinet.component';
 import { RegistrationComponent } from './registration/registration.component';
@@ -5,12 +6,20 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PersonalComponent } from './personal.component';
 import { AccessGuard } from './access.guard';
+import { RecordingComponent } from './cabinet/recording/recording.component';
+import { DonationsHistoryComponent } from './cabinet/history/donations-history.component';
+import { CabinetInfoComponent } from './cabinet/cabinet-info/cabinet-info.component';
 
 
 const routes: Routes = [
   {
     path: '', component: PersonalComponent, children: [
-      { path: 'cabinet', component: CabinetComponent, canActivate: [AccessGuard] },
+      { path: 'cabinet', component: CabinetComponent, canActivate: [AccessGuard], children: [
+        { path: 'info', component: CabinetInfoComponent },
+        { path: 'record', component: RecordingComponent },
+        { path: 'private-info', component: PrivateInfoComponent },
+        { path: 'donations-history', component: DonationsHistoryComponent },
+      ] },
       { path: 'register', component: RegistrationComponent },
       { path: 'login', component: LoginComponent }
       // { path: 'about-donation', component: DonationComponent },
