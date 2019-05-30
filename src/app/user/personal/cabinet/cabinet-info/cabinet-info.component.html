@@ -1,3 +1,44 @@
+<mat-card class='record-info-content mt-4'>
+  <mat-card-header>
+    <mat-card-title>Информация о записи</mat-card-title>
+    <mat-card-subtitle>Полная информация о месте и времени сдачи крови</mat-card-subtitle>
+  </mat-card-header>
+
+  <ng-container *ngIf='hasRecord$ | async'>
+    <mat-list>
+      <mat-list-item class='row'>
+        <div class='col-md-3'>Время: </div>
+        <div class='col-md-3'>11.08.1997 10:30</div>
+      </mat-list-item>
+
+      <mat-divider></mat-divider>
+      <mat-list-item class='row'>
+        <div class='col-md-3'>Пункт переливания: </div>
+        <div class='col-md-3'>Экспоцентр</div>
+
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item class='row'>
+        <div class='col-md-3'>Статус: </div>
+        <div class='col-md-3'>Утвержден</div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-divider></mat-divider>
+    </mat-list>
+
+  </ng-container>
+  <ng-container *ngIf='!(hasRecord$ | async)'>
+    <mat-list>
+      <mat-list-item>
+        <h2>Вы не записаны на сдачу крови!</h2>
+      </mat-list-item>
+    </mat-list>
+
+  </ng-container>
+
+</mat-card>
+
+
 <mat-card class='main-info-content mt-4'>
   <mat-card-header>
     <mat-card-title>Основная информация</mat-card-title>
@@ -5,12 +46,27 @@
   </mat-card-header>
 
   <mat-list>
-    <mat-list-item>Можно ли сдавать? <span class='ml-5'>Да</span></mat-list-item>
+    <mat-list-item class='row'>
+      <div class='col-md-3'>Можно ли сдавать: </div>
+      <div class='col-md-3'>{{canDonate ? 'Да' : 'Нет'}}</div>
+    </mat-list-item>
 
     <mat-divider></mat-divider>
-    <mat-list-item>Последняя кроводача <span class='ml-5'>11.08.1997</span></mat-list-item>
+    <mat-list-item class='row'>
+      <div class='col-md-3'>Последняя кроводача: </div>
+      <div class='col-md-3'>{{lastDonation.date | date: 'dd.MM.yyyy'}}, {{lastDonation.pointName }}</div>
+
+    </mat-list-item>
     <mat-divider></mat-divider>
-    <mat-list-item>Количество кроводач <span class='ml-5'>6</span></mat-list-item>
+    <mat-list-item class='row'>
+      <div class='col-md-3'>Прошло дней: </div>
+      <div class='col-md-3'>{{daysPassed}}</div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item class='row'>
+      <div class='col-md-3'>Количество кроводач: </div>
+      <div class='col-md-3'>{{donationsCounter}}</div>
+    </mat-list-item>
     <mat-divider></mat-divider>
     <mat-expansion-panel>
       <mat-expansion-panel-header>
@@ -21,6 +77,15 @@
           Пункты, в которых Вы можете сдать кровь
         </mat-panel-description>
       </mat-expansion-panel-header>
+      <div class='donation-points'>
+        <mat-list>
+          <mat-list-item class='row' *ngFor='let point of points'>
+            <div class='col-3'>{{point.name}}</div>
+            <div class='col-3'>{{point.description}}</div>
+          </mat-list-item>
+        </mat-list>
+
+      </div>
     </mat-expansion-panel>
   </mat-list>
 

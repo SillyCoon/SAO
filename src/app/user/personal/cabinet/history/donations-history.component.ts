@@ -1,6 +1,6 @@
 import { CabinetService } from './../services/cabinet.service';
 import { Component, OnInit } from '@angular/core';
-import { DonationTime } from '../../models/donation-time';
+import { DonationTime } from '../../../../shared/models/donation-time';
 
 @Component({
   selector: 'cabinet-donations-history',

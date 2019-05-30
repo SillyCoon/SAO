@@ -1,5 +1,5 @@
 import { CabinetService } from './../services/cabinet.service';
-import { DonationTime } from './../../models/donation-time';
+import { DonationTime } from '../../../../shared/models/donation-time';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -21,9 +21,9 @@ export class RecordingComponent implements OnInit {
     });
   }
 
-  record(timeId: string) {
+  record(timeId: number) {
     console.log(timeId);
-    this.cabinetService.record(timeId, '123').subscribe();
+    this.cabinetService.record(timeId, 1).subscribe();
   }
 
 }

@@ -7,6 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
+  navLinks = [
+    {
+      name: 'Доноры', path: 'donors'
+    },
+    {
+      name: 'Время', path: 'times'
+    },
+
+  ];
+
+
   constructor() { }
 
   ngOnInit() {

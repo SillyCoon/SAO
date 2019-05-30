@@ -26,7 +26,9 @@ import { MatButtonModule, MatToolbarModule, MatIconModule, MatFormFieldModule, M
     MatChipsModule,
     MatStepperModule,
     MatCheckboxModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSortModule,
+    MatPaginatorModule
   ],
   exports: [
     MatButtonModule,
@@ -52,7 +54,9 @@ import { MatButtonModule, MatToolbarModule, MatIconModule, MatFormFieldModule, M
     MatChipsModule,
     MatStepperModule,
     MatCheckboxModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSortModule,
+    MatPaginatorModule
   ]
 })
 export class MaterialAppModule { }
