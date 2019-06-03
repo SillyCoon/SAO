@@ -14,6 +14,15 @@ export class AdminComponent implements OnInit {
     {
       name: 'Время', path: 'times'
     },
+    {
+      name: 'Записи', path: 'records'
+    },
+    {
+      name: 'История', path: 'history'
+    },
+    {
+      name: 'Настройки', path: 'configs'
+    }
 
   ];
 

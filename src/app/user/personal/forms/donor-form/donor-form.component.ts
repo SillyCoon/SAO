@@ -12,8 +12,9 @@ import { DonorFormService } from './donor-form.service';
 export class DonorFormComponent implements OnInit {
 
   donorFormGroup: FormGroup;
-  weights: Observable<DropdownElement[]>;
-  citizenships: Observable<DropdownElement[]>;
+  weightOptions: Observable<DropdownElement[]>;
+  citizenshipOptions: Observable<DropdownElement[]>;
+  registrationOptions: Observable<DropdownElement[]>;
 
   @Output() formReady: EventEmitter<FormGroup> = new EventEmitter();
 
@@ -34,7 +35,8 @@ export class DonorFormComponent implements OnInit {
    * Получаем Observables на гражданство и вес, потом через | asynс данные
    */
   subscribeInfo() {
-    this.citizenships = this.donorFormService.getCitizenships();
-    this.weights = this.donorFormService.getWeights();
+    this.citizenshipOptions = this.donorFormService.getCitizenshipOptions();
+    this.weightOptions = this.donorFormService.getWeightOptions();
+    this.registrationOptions = this.donorFormService.getRegistrationOptions();
   }
 }

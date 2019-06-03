@@ -12,11 +12,15 @@ export class DonorFormService {
 
   constructor(private http: HttpClient) { }
 
-  getCitizenships(): Observable<DropdownElement[]> {
+  getCitizenshipOptions(): Observable<DropdownElement[]> {
     return this.http.get<DropdownElement[]>(`${this.baseUrl}citizenships`);
   }
 
-  getWeights(): Observable<DropdownElement[]> {
+  getWeightOptions(): Observable<DropdownElement[]> {
     return this.http.get<DropdownElement[]>(`${this.baseUrl}weights`);
+  }
+
+  getRegistrationOptions(): Observable<DropdownElement[]> {
+    return this.http.get<DropdownElement[]>(`${this.baseUrl}residencies`);
   }
 }

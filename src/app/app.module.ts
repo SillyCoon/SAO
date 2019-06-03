@@ -17,8 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MaterialAppModule,
     RouterModule,
     AppRoutingModule

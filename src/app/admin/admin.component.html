@@ -1,24 +1,26 @@
-<mat-toolbar></mat-toolbar>
+<mat-toolbar class="toolbar-admin">
+  <span class='toolbar-logo'>День донора</span>
+</mat-toolbar>
 <mat-sidenav-container class='admin-panel'>
-    <mat-sidenav mode='side' opened class='admin-panel-menu'>
+  <mat-sidenav mode='side' opened class='admin-panel-menu'>
 
-      <mat-nav-list>
-        <mat-list-item *ngFor="let link of navLinks">
-          <a matLine [routerLink]="link.path" routerLinkActive #rla="routerLinkActive">
-            {{link.name}}
-          </a>
-        </mat-list-item>
-      </mat-nav-list>
+    <mat-nav-list>
+      <mat-list-item *ngFor="let link of navLinks">
+        <a matLine [routerLink]="link.path" routerLinkActive #rla="routerLinkActive">
+          {{link.name}}
+        </a>
+      </mat-list-item>
+    </mat-nav-list>
 
-    </mat-sidenav>
-    <mat-sidenav-content class='personal-cabinet-content'>
-      <div class='container-fluid personal-cabinet-container'>
-        <div class='row'>
-          <div class='col-md-12'>
-            <router-outlet></router-outlet>
-          </div>
-
+  </mat-sidenav>
+  <mat-sidenav-content class='personal-cabinet-content'>
+    <div class='container-fluid personal-cabinet-container'>
+      <div class='row'>
+        <div class='col-md-12'>
+          <router-outlet></router-outlet>
         </div>
+
       </div>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

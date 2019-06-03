@@ -21,6 +21,7 @@ export class EditableRowComponent implements OnInit, ControlValueAccessor {
   @Input() value;
   @Input() set editable(value: boolean) {
     this.isEditable = value;
+    this.control.setValue(this.value);
   }
 
   control: FormControl = new FormControl();

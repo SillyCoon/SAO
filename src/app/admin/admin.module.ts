@@ -6,12 +6,28 @@ import { AdminComponent } from './admin.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { DonorsComponent } from './donors/donors.component';
 import { TimesComponent } from './times/times.component';
-import { PointsComponent } from './points/points.component';
 import { TimeLoadComponent } from './times/time-load/time-load.component';
 import { EditableRowComponent } from './editable-row/editable-row.component';
+import { ConfigsComponent } from './configs/configs.component';
+import { DocumentsComponent } from './configs/documents/documents.component';
+import { UserRolesComponent } from './configs/user-roles/user-roles.component';
+import { DonationPointsComponent } from './configs/donation-points/donation-points.component';
+import { RecordsComponent } from './records/records.component';
+import { HistoryComponent } from './history/history.component';
 
 @NgModule({
-  declarations: [AdminComponent, DonorsComponent, TimesComponent, PointsComponent, TimeLoadComponent, EditableRowComponent],
+  declarations: [
+    AdminComponent,
+    DonorsComponent,
+    TimesComponent,
+    TimeLoadComponent,
+    EditableRowComponent,
+    ConfigsComponent,
+    DocumentsComponent,
+    UserRolesComponent,
+    DonationPointsComponent,
+    RecordsComponent,
+    HistoryComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
