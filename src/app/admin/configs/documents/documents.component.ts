@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DocumentsComponent implements OnInit {
 
+  documents = [
+    {id: 1, text: 'Паспорт'},
+    {id: 2, text: 'ИНН'},
+    {id: 3, text: 'СНИЛС'},
+    {id: 4, text: 'Справка'}
+  ]
+
   constructor() { }
 
   ngOnInit() {

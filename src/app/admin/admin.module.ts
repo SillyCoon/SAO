@@ -14,6 +14,7 @@ import { UserRolesComponent } from './configs/user-roles/user-roles.component';
 import { DonationPointsComponent } from './configs/donation-points/donation-points.component';
 import { RecordsComponent } from './records/records.component';
 import { HistoryComponent } from './history/history.component';
+import { OptionComponent } from './configs/option/option.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HistoryComponent } from './history/history.component';
     UserRolesComponent,
     DonationPointsComponent,
     RecordsComponent,
-    HistoryComponent],
+    HistoryComponent,
+    OptionComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

@@ -1,13 +1,13 @@
 <mat-card class='main-info-content mt-4'>
   <mat-card-header>
-    <mat-card-title>Документы</mat-card-title>
-    <mat-card-subtitle>Здесь Вы можете добавить или изменить необходимые документы</mat-card-subtitle>
+    <mat-card-title>{{title}}</mat-card-title>
+    <mat-card-subtitle>{{subtitle}}</mat-card-subtitle>
   </mat-card-header>
   <div class='container-fluid'>
-    <mat-list role="list" *ngFor='let doc of documents'>
+    <mat-list role="list" *ngFor='let option of options'>
       <mat-list-item role="listitem" class='row'>
         <div class='list-text col-md-4'>
-          {{doc.text}}
+          {{option.text}}
         </div>
         <div class='list-buttons col-md-5'>
           <button mat-icon-button color="primary" matTooltip="Редактировать" [matTooltipPosition]="'above'">
@@ -19,8 +19,8 @@
       <mat-divider></mat-divider>
 
     </mat-list>
-    <div class='d-flex flex-column-reverse'>
-      <button mat-button color='basic'>Добавить документ</button>
+    <div *ngIf='isAddable' class='d-flex flex-column-reverse'>
+      <button mat-button color='basic'>Добавить</button>
     </div>
   </div>
 
