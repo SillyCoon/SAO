@@ -1,5 +1,5 @@
 import { DonorInfo } from './../models/donor-info';
-import { RegistrationService } from './registration.service';
+import { RegistrationService } from '../services/registration.service';
 import { Component, OnInit, AfterViewChecked } from '@angular/core';
 import { FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
 import { MatDialog } from '@angular/material';

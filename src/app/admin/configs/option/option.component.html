@@ -1,17 +1,17 @@
 <mat-card class='main-info-content mt-4'>
   <mat-card-header>
-    <mat-card-title>{{title}}</mat-card-title>
-    <mat-card-subtitle>{{subtitle}}</mat-card-subtitle>
+    <mat-card-title>{{header.title}}</mat-card-title>
+    <mat-card-subtitle>{{header.subtitle}}</mat-card-subtitle>
   </mat-card-header>
   <div class='container-fluid'>
     <mat-list role="list" *ngFor='let option of options'>
       <mat-list-item role="listitem" class='row'>
-        <div class='list-text col-md-4'>
+        <div class='list-text col-md-10'>
           {{option.text}}
         </div>
-        <div class='list-buttons col-md-5'>
-          <button mat-icon-button color="primary" matTooltip="Редактировать" [matTooltipPosition]="'above'">
-            <mat-icon>edit</mat-icon>
+        <div class='list-buttons col-md-2'>
+          <button mat-icon-button color="primary" matTooltip="Редактировать" [matTooltipPosition]="'above'" (click)='edit(option.id)'>
+            <mat-icon>{{editingOption !== option.id ? 'edit': 'save'}}</mat-icon>
           </button>
 
         </div>

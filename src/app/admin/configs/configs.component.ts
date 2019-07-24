@@ -1,4 +1,5 @@
-import { Option } from './option/option';
+import { Header } from './option/models/header';
+import { Option } from './option/models/option';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,44 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfigsComponent implements OnInit {
 
-  documentTitle: 'Документы';
-  documentSubtitle: 'Здесь Вы можете добавить или изменить необходимые документы';
+  documentHeader: Header = { title: 'Документы', subtitle: 'Здесь Вы можете добавить или изменить необходимые документы' };
 
   documentOptions: Option[] = [
-    {id: '1', text: 'Паспорт'},
-    {id: '2', text: 'ИНН'},
-    {id: '3', text: 'СНИЛС'},
-    {id: '4', text: 'Справка'}
+    { id: '1', text: 'Паспорт' },
+    { id: '2', text: 'ИНН' },
+    { id: '3', text: 'СНИЛС' },
+    { id: '4', text: 'Справка' }
   ];
 
-  weightTitle: 'Документы';
-  weightSubtitle: 'Здесь Вы можете добавить или изменить необходимые документы';
-
+  weightHeader: Header = { title: 'Опции массы тела', subtitle: 'Здесь Вы можете изменить отображающиеся опции выбора массы тела' };
   weightOptions: Option[] = [
-    {id: '1', text: 'Паспорт'},
-    {id: '2', text: 'ИНН'},
-    {id: '3', text: 'СНИЛС'},
-    {id: '4', text: 'Справка'}
+    { id: '1', text: 'Масса тела более 58 кг' },
+    { id: '2', text: 'Масса тела менее 58 кг' },
   ];
 
-  citizenshipTitle: 'Документы';
-  citizenshipSubtitle: 'Здесь Вы можете добавить или изменить необходимые документы';
+  citizenshipHeader: Header = { title: 'Опции гражданства', subtitle: 'Здесь Вы можете изменить отображающиеся опции выбора гражданства' };
 
   citizenshipOptions: Option[] = [
-    {id: '1', text: 'Паспорт'},
-    {id: '2', text: 'ИНН'},
-    {id: '3', text: 'СНИЛС'},
-    {id: '4', text: 'Справка'}
+    { id: '1', text: 'Гражданство России от года' },
+    { id: '2', text: 'Отсутстутствует или менее года' },
   ];
 
-  residencyTitle: 'Документы';
-  residencySubtitle: 'Здесь Вы можете добавить или изменить необходимые документы';
+  residencyHeader: Header = { title: 'Опции регистрации', subtitle: 'Здесь Вы можете изменить отображающиеся опции выбора регистрации' };
 
   residencyOptions: Option[] = [
-    {id: '1', text: 'Паспорт'},
-    {id: '2', text: 'ИНН'},
-    {id: '3', text: 'СНИЛС'},
-    {id: '4', text: 'Справка'}
+    { id: '1', text: 'Регистрация в СПб от полугода' },
+    { id: '2', text: 'Отсутствует или менее полугода' },
   ];
 
   constructor() { }

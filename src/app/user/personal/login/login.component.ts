@@ -1,3 +1,4 @@
+import { WellKnownRoles } from './model/well-known-roles';
 import { AuthenticationService } from './../services/authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -22,15 +23,16 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit() {
-    // console.log('submit');
+  onSubmit(isFirstTime: boolean = false) {
     const val = this.loginForm.value;
     if (val.login && val.password) {
-      // this.authService.login(val.login, val.password).subscribe(() => {
-      //   console.log('User is loggen in');
-      //   this.router.navigateByUrl('/user/personal/cabinet');
-      // });
-      this.router.navigateByUrl('/user/personal/cabinet');
+      this.authService.login({ email: val.login, password: val.password }, isFirstTime).subscribe(res => {
+        if (!this.authService.userContext.roles.includes(WellKnownRoles.basic)) {
+          this.router.navigateByUrl('/user/personal/cabinet');
+        } else {
+          this.router.navigateByUrl('/user/personal/register');
+        }
+      });
     }
   }
 }

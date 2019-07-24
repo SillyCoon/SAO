@@ -27,9 +27,10 @@
     </ng-container>
 
     <ng-container matColumnDef="record">
-        <th mat-header-cell *matHeaderCellDef> </th>
-        <td mat-cell *matCellDef="let element"> <button mat-button (click)="record(element.id)">Записаться</button>  </td>
-      </ng-container>
+      <th mat-header-cell *matHeaderCellDef> </th>
+      <td mat-cell *matCellDef="let element"> <button mat-button (click)="record(element.id)">{{buttonText}}</button>
+      </td>
+    </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

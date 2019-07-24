@@ -12,6 +12,7 @@ export class RecordingComponent implements OnInit {
   displayedColumns = ['id', 'point', 'date', 'time', 'record'];
 
   times: DonationTime[] = [];
+  buttonText = 'Записаться';
 
   constructor(private cabinetService: CabinetService) { }
 
@@ -23,6 +24,11 @@ export class RecordingComponent implements OnInit {
 
   record(timeId: number) {
     console.log(timeId);
+    this.cabinetService.hasRecord.next(true);
+    this.times = [{id: '1', pointName: 'Мариинская', pointId: '1', date: new Date('07.20.2019 10:30')} as DonationTime];
+    this.buttonText = 'Изменить';
+    // this.cabinetService.testSubject
+    //   .next({ id: '1', pointName: 'Мариинская', pointId: '1', date: new Date('07.20.2019 10:30') } as DonationTime)
     this.cabinetService.record(timeId, 1).subscribe();
   }
 

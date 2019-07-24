@@ -25,7 +25,8 @@ export class DonorFormComponent implements OnInit {
   ngOnInit() {
     this.donorFormGroup = this._formBuilder.group({
       weight: [''],
-      citizenship: ['']
+      citizenship: [''],
+      registration: ['']
     });
     this.subscribeInfo();
     this.formReady.emit(this.donorFormGroup);

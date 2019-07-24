@@ -13,7 +13,7 @@ export class CabinetInfoComponent implements OnInit {
 
   points: DonationPoint[];
   lastDonation: DonationTime;
-  daysPassed: number;
+  daysPassed: number = 40;
   canDonate: boolean;
   donationsCounter: number;
 
@@ -31,7 +31,7 @@ export class CabinetInfoComponent implements OnInit {
   loadDonationsQuantity(donorId: string) {
     this.cabinetService.getDonationsQuantity(donorId).subscribe(quantity => {
       this.donationsCounter = quantity;
-    })
+    });
   }
 
   loadAvailablePoints(donorId: string) {

@@ -11,11 +11,11 @@
     </a>
   </div>
   <div class='registration-status'>Статус регистрации:
-    <span>Запись открыта!</span>
-    <div class='registration-indicator'></div>
+    <span class='ml-2'>Запись открыта!</span>
+    <!-- <div class='registration-indicator'></div> -->
   </div>
   <div class='login-buttons ml-auto p-2'>
     <button mat-button
-      [routerLink]="'personal/login'">{{ isAuthorized ? "Личный кабинет" : "Вход/Регистрация"}}</button>
+      [routerLink]="'personal/login'">{{ true ? "Выход" : "Вход/Регистрация"}}</button>
   </div>
 </mat-toolbar>

@@ -5,7 +5,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PersonalComponent } from './personal.component';
-import { AccessGuard } from './access.guard';
+import { AccessGuard } from './guards/access.guard';
 import { RecordingComponent } from './cabinet/recording/recording.component';
 import { DonationsHistoryComponent } from './cabinet/history/donations-history.component';
 import { CabinetInfoComponent } from './cabinet/cabinet-info/cabinet-info.component';

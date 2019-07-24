@@ -16,11 +16,11 @@
               <input matInput formControlName='login' placeholder='Email'>
             </mat-form-field>
             <mat-form-field placeholder='Пароль'>
-              <input matInput formControlName="password" placeholder='Пароль'>
+              <input matInput type='password' formControlName="password" placeholder='Пароль'>
             </mat-form-field>
             <div class='login-buttons'>
-              <button mat-button click="submit()">Вход</button>
-              <button mat-button [routerLink]="'../register'" type='button'>Регистрация</button>
+              <button mat-button>Вход</button>
+              <button mat-button (click)='onSubmit(true)' type='button'>Регистрация</button>
             </div>
           </form>
         </mat-card-content>

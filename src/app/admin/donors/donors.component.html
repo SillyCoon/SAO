@@ -7,6 +7,9 @@
     <button mat-button>Выбрать колонки</button>
   </div>
 
+  <mat-form-field class='search-field'>
+    <input matInput  placeholder="Поиск">
+  </mat-form-field>
   <table mat-table matSort [dataSource]="donors" class="mat-elevation-z2 donation-times-table">
 
     <ng-container matColumnDef="id">

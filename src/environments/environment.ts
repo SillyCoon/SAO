@@ -6,7 +6,11 @@ export const environment = {
   production: false,
   api: {
     baseUrl: 'http://localhost:3000/',
-    getTimes: 'records/'
+    auth: {
+      login: 'auth/login/',
+      logout: 'auth/logout/',
+      basicRegistration: 'auth/basic-registration'
+    }
   }
 };
 

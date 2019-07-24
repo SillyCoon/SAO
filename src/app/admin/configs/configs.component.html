@@ -1,8 +1,22 @@
-<app-option [title]='documentTitle' [subtitle]='documentSubtitle' [options]='documentOptions' [isAddable]='true'>
-</app-option>
-<app-option [title]='documentTitle' [subtitle]='documentSubtitle' [options]='documentOptions' [isAddable]='false'>
-</app-option>
-<app-option [title]='documentTitle' [subtitle]='documentSubtitle' [options]='documentOptions' [isAddable]='false'>
-</app-option>
-<app-option [title]='documentTitle' [subtitle]='documentSubtitle' [options]='documentOptions' [isAddable]='false'>
-</app-option>
+<div class='container-fluid'>
+  <h1 class='mt-3'>Настройки основных полей</h1>
+  <div class='row'>
+    <div class='col-md-6 col-sm-12'>
+      <app-option [header]='documentHeader' [options]='documentOptions' [isAddable]='true'>
+      </app-option>
+    </div>
+
+    <div class='col-md-6 col-sm-12'>
+      <app-option [header]='weightHeader' [options]='weightOptions' [isAddable]='false'>
+      </app-option>
+    </div>
+    <div class='col-md-6 col-sm-12'>
+      <app-option [header]='residencyHeader' [options]='residencyOptions' [isAddable]='false'>
+      </app-option>
+    </div>
+    <div class='col-md-6 col-sm-12'>
+      <app-option [header]='citizenshipHeader' [options]='citizenshipOptions' [isAddable]='false'>
+      </app-option>
+    </div>
+  </div>
+</div>

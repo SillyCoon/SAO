@@ -10,7 +10,7 @@
         <user-donor-form (formReady)='formInitializer("donor", $event)'></user-donor-form>
         <div class='base-info-button'>
           <ng-container *ngIf="isBudget">
-            <button mat-button matStepperNext>Next</button>
+            <button mat-button matStepperNext>Далее</button>
           </ng-container>
           <ng-container *ngIf="!isBudget">
             <button mat-button (click)="register()"

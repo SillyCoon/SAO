@@ -13,14 +13,14 @@ export class DonorFormService {
   constructor(private http: HttpClient) { }
 
   getCitizenshipOptions(): Observable<DropdownElement[]> {
-    return this.http.get<DropdownElement[]>(`${this.baseUrl}citizenships`);
+    return null;this.http.get<DropdownElement[]>(`${this.baseUrl}citizenships`);
   }
 
   getWeightOptions(): Observable<DropdownElement[]> {
-    return this.http.get<DropdownElement[]>(`${this.baseUrl}weights`);
+    return null;this.http.get<DropdownElement[]>(`${this.baseUrl}weights`);
   }
 
   getRegistrationOptions(): Observable<DropdownElement[]> {
-    return this.http.get<DropdownElement[]>(`${this.baseUrl}residencies`);
+    return null;this.http.get<DropdownElement[]>(`${this.baseUrl}residencies`);
   }
 }

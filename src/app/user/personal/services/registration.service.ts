@@ -1,5 +1,5 @@
-import { DropdownElement } from './../models/dropdown-element';
-import { DonorInfo } from './../models/donor-info';
+import { DropdownElement } from '../models/dropdown-element';
+import { DonorInfo } from '../models/donor-info';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { HttpClient } from '@angular/common/http';

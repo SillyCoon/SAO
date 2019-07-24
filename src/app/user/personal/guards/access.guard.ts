@@ -1,6 +1,6 @@
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthenticationService } from './services/authentication.service';
+import { AuthenticationService } from '../services/authentication.service';
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -10,11 +10,16 @@ export class AccessGuard implements CanActivate {
 
   canActivate(): Observable<boolean> | boolean {
 
-    // if (this.authService.isLoggetOut()) {
-    //   this.router.navigate(['login']);
-    //   return false;
-    // } else {
+    if (this.authService.isOnlyBasicAccess) {
+      this.router.navigateByUrl('user/personal/register');
+      return false;
+    }
+
+    if (this.authService.isLoggetOut()) {
+      this.router.navigate(['login']);
+      return false;
+    } else {
       return true;
-    // }
+    }
   }
 }
