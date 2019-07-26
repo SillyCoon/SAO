@@ -19,7 +19,7 @@ export class AuthenticationService {
   private loginPath = this.baseUrl + environment.api.auth.login;
   private basicRegistrationPath = this.baseUrl + environment.api.auth.basicRegistration;
 
-  constructor(private http: HttpClient, private sessionService: SessionService) { }
+  constructor(private http: HttpClient) { }
 
   /**
    * Регистрирует пользователя или входит в лк
@@ -36,23 +36,13 @@ export class AuthenticationService {
   }
 
   private setSession(token: string) {
-    const decoded = jwt_decode(token);
-    const user: User = {
-      id: decoded.userId,
-      username: decoded.username,
-      roles: [decoded.roles]
-    };
-
-    console.log(user);
-    this.userContext = user;
     localStorage.setItem('id_token', token);
-    localStorage.setItem('expires_at', decoded.exp);
+    localStorage.setItem('expires_at', jwt_decode(token).exp);
   }
 
   logout() {
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
-    localStorage.removeItem('user');
   }
 
   public isLoggedIn = (): boolean =>
@@ -61,8 +51,17 @@ export class AuthenticationService {
 
   public isLoggetOut = (): boolean => !this.isLoggedIn;
 
-  public isOnlyBasicAccess = (): boolean => {
-    return this.userContext.roles.includes(WellKnownRoles.basic) ? true : false;
+  public get isOnlyBasicAccess(): boolean {
+    return this.checkRole(WellKnownRoles.basic);
+  }
+
+  public checkRole(role: WellKnownRoles): boolean {
+    if (!this.currentUser) { return false; }
+    return this.currentUser.roles.includes(role) ? true : false;
+  }
+
+  public get currentUser(): User {
+    return this.getUserFromToken();
   }
 
   private getExpiration(): number {
@@ -70,6 +69,15 @@ export class AuthenticationService {
     return expiresAt * 1000;
   }
 
-
+  private getUserFromToken(): User {
+    const token = localStorage.getItem('id_token');
+    if (token === 'undefined' || !token) { return null; } // Т.к. если ключа нет, то возвращает строку 'undefined', хз почему
+    const decoded = jwt_decode(token);
+    return {
+      id: decoded.userId,
+      username: decoded.username,
+      roles: decoded.roles
+    };
+  }
 
 }

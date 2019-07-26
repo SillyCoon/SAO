@@ -27,6 +27,10 @@ export class RegistrationService {
     return this.http.get<DropdownElement>(`${this.baseUrl}citizenships`);
   }
 
+  getRegistration(): Observable<DropdownElement> {
+    return this.http.get<DropdownElement>(`${this.baseUrl}citizenships`);
+  }
+
   getWeights(): Observable<DropdownElement> {
     return this.http.get<DropdownElement>(`${this.baseUrl}weights`);
   }

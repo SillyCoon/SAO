@@ -1,3 +1,4 @@
+import { BasicAccessGuard } from './guards/basic-access.guard';
 import { PrivateInfoComponent } from './cabinet/private-info/private-info.component';
 import { LoginComponent } from './login/login.component';
 import { CabinetComponent } from './cabinet/cabinet.component';
@@ -14,14 +15,16 @@ import { CabinetInfoComponent } from './cabinet/cabinet-info/cabinet-info.compon
 const routes: Routes = [
   {
     path: '', component: PersonalComponent, children: [
-      { path: 'cabinet', component: CabinetComponent, canActivate: [AccessGuard], children: [
-        { path: 'info', component: CabinetInfoComponent },
-        { path: 'record', component: RecordingComponent },
-        { path: 'private-info', component: PrivateInfoComponent },
-        { path: 'donations-history', component: DonationsHistoryComponent },
-      ] },
-      { path: 'register', component: RegistrationComponent },
-      { path: 'login', component: LoginComponent }
+      {
+        path: 'cabinet', component: CabinetComponent, canActivate: [BasicAccessGuard], children: [
+          { path: 'info', component: CabinetInfoComponent },
+          { path: 'record', component: RecordingComponent },
+          { path: 'private-info', component: PrivateInfoComponent },
+          { path: 'donations-history', component: DonationsHistoryComponent },
+        ]
+      },
+      { path: 'register', component: RegistrationComponent, canActivate: [] },
+      { path: 'login', component: LoginComponent, canActivate: [BasicAccessGuard] }
       // { path: 'about-donation', component: DonationComponent },
       // { path: 'about-event', component: EventComponent },
       // { path: 'recommendations', component: RecommendationsComponent },
@@ -34,7 +37,7 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
-  providers: [AccessGuard]
+  providers: [AccessGuard, BasicAccessGuard]
 })
 
 export class PersonalRoutingModule {

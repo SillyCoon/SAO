@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     const val = this.loginForm.value;
     if (val.login && val.password) {
       this.authService.login({ email: val.login, password: val.password }, isFirstTime).subscribe(res => {
-        if (!this.authService.userContext.roles.includes(WellKnownRoles.basic)) {
+        if (!this.authService.isOnlyBasicAccess) {
           this.router.navigateByUrl('/user/personal/cabinet');
         } else {
           this.router.navigateByUrl('/user/personal/register');
