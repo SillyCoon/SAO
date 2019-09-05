@@ -1,3 +1,4 @@
+import { AuthenticationService } from './personal/services/authentication.service';
 import { UserRoutingModule } from './user-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -35,7 +36,8 @@ import { AuthInterceptor } from './personal/authentication.interceptor';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }
+    },
+    AuthenticationService
   ]
 })
 export class UserModule { }

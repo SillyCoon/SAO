@@ -1,3 +1,4 @@
+import { WellKnownRoles } from './../login/model/well-known-roles';
 import { DropdownElement } from '../models/dropdown-element';
 import { DonorInfo } from '../models/donor-info';
 import { Injectable } from '@angular/core';
@@ -11,7 +12,9 @@ export class RegistrationService {
 
   baseUrl = 'http://localhost:3000/';
 
-  donorUrl = 'donor-info/';
+  donorUrl = 'role-option/';
+
+  roleOptionsUrl = 'role-option/';
 
   constructor(private http: HttpClient) { }
 
@@ -24,14 +27,14 @@ export class RegistrationService {
   }
 
   getCitizenships(): Observable<DropdownElement> {
-    return this.http.get<DropdownElement>(`${this.baseUrl}citizenships`);
+    return this.http.get<DropdownElement>(this.baseUrl + this.roleOptionsUrl + WellKnownRoles.citizen);
   }
 
   getRegistration(): Observable<DropdownElement> {
-    return this.http.get<DropdownElement>(`${this.baseUrl}citizenships`);
+    return this.http.get<DropdownElement>(this.baseUrl + this.roleOptionsUrl + WellKnownRoles.resident);
   }
 
   getWeights(): Observable<DropdownElement> {
-    return this.http.get<DropdownElement>(`${this.baseUrl}weights`);
+    return this.http.get<DropdownElement>(this.baseUrl + this.roleOptionsUrl + WellKnownRoles.weight);
   }
 }

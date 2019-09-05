@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { AuthenticationService } from './../personal/services/authentication.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserToolbarComponent implements OnInit {
 
-  isAuthorized: true;
+  isAuthorized = true;
 
   elements = [
     {'name': 'Личный кабинет', 'link': 'personal/login'},
@@ -18,9 +20,16 @@ export class UserToolbarComponent implements OnInit {
     {'name': 'О нас', 'link': 'about-us'},
   ];
 
-  constructor() { }
+  constructor(private authService: AuthenticationService, private router: Router) { }
+
+  onExit() {
+    this.authService.logout();
+    this.router.navigateByUrl('user/welcome');
+    this.isAuthorized = !this.isAuthorized;
+  }
 
   ngOnInit() {
+    this.isAuthorized = this.authService.isLoggedIn();
   }
 
 }

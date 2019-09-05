@@ -57,6 +57,7 @@ export class AuthenticationService {
 
   public checkRole(role: WellKnownRoles): boolean {
     if (!this.currentUser) { return false; }
+    console.log(this.currentUser);
     return this.currentUser.roles.includes(role) ? true : false;
   }
 
