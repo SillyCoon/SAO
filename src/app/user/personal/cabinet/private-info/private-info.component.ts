@@ -41,8 +41,8 @@ export class PrivateInfoComponent implements OnInit {
       delete userBasicInfo.passwordFormGroup;
 
       const donorInfo: DonorInfo = {
-        weightId: donorBasicInfo.weight,
-        citizenshipId: donorBasicInfo.citizenship,
+        hasWeight: donorBasicInfo.weight,
+        hasCitizenship: donorBasicInfo.citizenship,
         ...userBasicInfo,
         password: password
       };

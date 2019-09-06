@@ -1,4 +1,3 @@
-import { PasswordErrorStateMatcher } from './error-state-matcher';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, ValidatorFn, ValidationErrors } from '@angular/forms';
 
@@ -11,7 +10,6 @@ export class BasicInfoFormComponent implements OnInit {
 
   @Output() formReady: EventEmitter<FormGroup> = new EventEmitter();
   mainFormGroup: FormGroup;
-  matcher = new PasswordErrorStateMatcher();
 
   constructor(private _formBuilder: FormBuilder) {
 
@@ -21,13 +19,6 @@ export class BasicInfoFormComponent implements OnInit {
 
   ngOnInit() {
     this.mainFormGroup = this._formBuilder.group({
-      email: ['ahtunget@gmail.com', Validators.email],
-      passwordFormGroup: this._formBuilder.group({
-        password: ['12345678', Validators.minLength(8)],
-        secondPassword: ['12345678'],
-      }, {
-          validator: this.passwordEqualityValidator
-        }),
       firstName: ['Алексей', Validators.pattern(/[а-яА-я]/)],
       lastName: ['Иванов', Validators.pattern(/[а-яА-я]/)],
       patronymic: ['Анатольевич', Validators.pattern(/[а-яА-я]/)],
@@ -38,11 +29,6 @@ export class BasicInfoFormComponent implements OnInit {
     this.formReady.emit(this.mainFormGroup);
   }
 
-  passwordEqualityValidator: ValidatorFn = (fg: FormGroup): ValidationErrors | null => {
-    const pass = fg.controls.password.value;
-    const confirmPass = fg.controls.secondPassword.value;
-    return pass === confirmPass ? null : { notEquals: true };
-  }
 
 }
 

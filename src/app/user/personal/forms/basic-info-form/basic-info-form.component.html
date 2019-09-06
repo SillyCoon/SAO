@@ -1,20 +1,5 @@
 <form class='main-form' [formGroup]="mainFormGroup" class='main-form'>
   <mat-form-field>
-    <input matInput placeholder="Email" formControlName="email" required>
-  </mat-form-field>
-  <div class='password-form' formGroupName='passwordFormGroup'>
-    <mat-form-field>
-      <input matInput type='password' placeholder="Пароль" formControlName="password" required>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput type='password' placeholder="Повторите пароль" formControlName="secondPassword"
-        [errorStateMatcher]='matcher'>
-      <mat-error *ngIf="mainFormGroup.get('passwordFormGroup').hasError('notEquals')">
-        Пароли не совпадают
-      </mat-error>
-    </mat-form-field>
-  </div>
-  <mat-form-field>
     <input matInput placeholder="Фамилия" formControlName="lastName" required>
   </mat-form-field>
   <mat-form-field>

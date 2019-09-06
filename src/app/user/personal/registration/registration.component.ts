@@ -62,14 +62,16 @@ export class RegistrationComponent implements OnInit {
       const donorBasicInfo = donorBasicInfoForm.value;
       const userBasicInfo = userBasicInfoForm.value;
       // Так как FormGroup включает пароль и подтверждение, надо взять только сам пароль
-      const password = userBasicInfo.passwordFormGroup.password;
+      // const password = userBasicInfo.passwordFormGroup.password;
       delete userBasicInfo.passwordFormGroup;
 
       const donorInfo: DonorInfo = {
-        weightId: donorBasicInfo.weight,
-        citizenshipId: donorBasicInfo.citizenship,
+        hasBudget: false,
+        hasWeight: donorBasicInfo.weight as boolean,
+        hasCitizenship: donorBasicInfo.citizenship as boolean,
+        hasRegistration: donorBasicInfo.registration as boolean,
         ...userBasicInfo,
-        password: password
+        // password: password
       };
       console.log(donorInfo);
 

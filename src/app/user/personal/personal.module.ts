@@ -19,6 +19,8 @@ import { RecordingComponent } from './cabinet/recording/recording.component';
 import { DonationsHistoryComponent } from './cabinet/history/donations-history.component';
 import { PrivateInfoComponent } from './cabinet/private-info/private-info.component';
 import { CabinetInfoComponent } from './cabinet/cabinet-info/cabinet-info.component';
+import { RegistrationService } from './services/registration.service';
+import { UserInfoFormComponent } from './forms/user-info-form/user-info-form.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { CabinetInfoComponent } from './cabinet/cabinet-info/cabinet-info.compon
     DonationsHistoryComponent,
     RecordingComponent,
     PrivateInfoComponent,
-    CabinetInfoComponent
+    CabinetInfoComponent,
+    UserInfoFormComponent
   ],
   imports: [
     CommonModule,
@@ -46,11 +49,12 @@ import { CabinetInfoComponent } from './cabinet/cabinet-info/cabinet-info.compon
   ],
   providers: [
     AuthenticationService,
+    RegistrationService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }
+    },
   ],
   entryComponents: [
     YesNoDialog
