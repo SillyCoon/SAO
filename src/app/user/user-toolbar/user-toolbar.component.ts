@@ -12,7 +12,7 @@ export class UserToolbarComponent implements OnInit {
   isAuthorized = true;
 
   elements = [
-    {'name': 'Личный кабинет', 'link': 'personal/login'},
+    {'name': 'Личный кабинет', 'link': 'personal/cabinet'},
     {'name': 'Что такое донорство?', 'link': 'about-donation'},
     {'name': 'Как стать донором?', 'link': 'about-event'},
     {'name': 'Рекомендации', 'link': 'recommendations'},
@@ -20,11 +20,11 @@ export class UserToolbarComponent implements OnInit {
     {'name': 'О нас', 'link': 'about-us'},
   ];
 
-  constructor(private authService: AuthenticationService, private router: Router) { }
+  constructor(public authService: AuthenticationService, private router: Router) { }
 
   onExit() {
     this.authService.logout();
-    this.router.navigateByUrl('user/welcome');
+    this.router.navigateByUrl('/user/personal/login');
     this.isAuthorized = !this.isAuthorized;
   }
 

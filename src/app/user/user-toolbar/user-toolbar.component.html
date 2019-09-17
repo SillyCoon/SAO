@@ -15,6 +15,6 @@
     <!-- <div class='registration-indicator'></div> -->
   </div>
   <div class='login-buttons ml-auto p-2'>
-    <button mat-button [routerLink]="'personal/login'" (click)='onExit()'>{{ isAuthorized ? "Выход" : "Вход/Регистрация"}}</button>
+    <button mat-button (click)='onExit()'>{{ authService.isLoggetOut() ? "Выход" : "Вход/Регистрация"}}</button>
   </div>
 </mat-toolbar>

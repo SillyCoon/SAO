@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { YesNoDialog } from '../yes-no-dialog/yes-no-dialog.component';
 import { YesNoDialogData } from '../yes-no-dialog/dialog-data';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'user-registration',
@@ -21,7 +22,8 @@ export class RegistrationComponent implements OnInit {
   constructor(
     private _formBuilder: FormBuilder,
     public educationFormDialog: MatDialog,
-    public registrationService: RegistrationService) { }
+    public registrationService: RegistrationService,
+    private router: Router) { }
 
   ngOnInit() {
     this.userInfoForm = this._formBuilder.group({
@@ -61,21 +63,20 @@ export class RegistrationComponent implements OnInit {
 
       const donorBasicInfo = donorBasicInfoForm.value;
       const userBasicInfo = userBasicInfoForm.value;
-      // Так как FormGroup включает пароль и подтверждение, надо взять только сам пароль
-      // const password = userBasicInfo.passwordFormGroup.password;
+
       delete userBasicInfo.passwordFormGroup;
 
       const donorInfo: DonorInfo = {
-        hasBudget: false,
+        hasBudget: this.isBudget,
         hasWeight: donorBasicInfo.weight as boolean,
         hasCitizenship: donorBasicInfo.citizenship as boolean,
         hasRegistration: donorBasicInfo.registration as boolean,
         ...userBasicInfo,
-        // password: password
       };
-      console.log(donorInfo);
 
-      this.registrationService.sendRegistrationData(donorInfo).subscribe();
+      this.registrationService.sendRegistrationData(donorInfo).subscribe(() => {
+        this.router.navigate(['user/personal/cabinet']);
+      });
 
     } else {
       this.userInfoForm.markAsDirty();
